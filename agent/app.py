@@ -8,7 +8,7 @@ client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
 
 def run_chat():
     print('You: (type exit to quit)')
-    system_message = "your name is masha and you are an expert in football"
+    system_message = "your name is messi and you are an expert n football"
     history = []
 
     while True:
@@ -32,3 +32,13 @@ def run_chat():
         history.append({'role': 'assistant', 'content': reply})
 
 run_chat()
+
+
+#step 2: the diffrence between chatgpt and my chatbot is that my chatbot is more personalized for the user and chatgpt is more general.
+
+#reflection lab1
+#Personal Analogy: a real life example would be for me a book because when you start the book and you read and then you stop and you want to continue later you need to remember what you read to continue the book if you not remember there is no point of continue the book.
+#history: it stops saving the reply of my massage in the history list
+#temperature: it doesnt direcly direcly change the way it replies it just makes it more or less random
+#break: it stops the loop and exits the chat function and ending the program
+#Bug Diary:i had a bug about the authintication and at first i thought it was somthing in the code like line or something but it turned out to be a problem with the API key
