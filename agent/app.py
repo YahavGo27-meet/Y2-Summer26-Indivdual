@@ -22,12 +22,13 @@ def run_chat():
         response = client.messages.create(
             model='claude-haiku-4-5-20251001',
             max_tokens=300,
-            temperature=0.7,
+            temperature=1,
             system=system_message,
             messages=history
         )
 
         reply = response.content[0].text
+        #print(response)
         print(f'Claude: {reply}')
         history.append({'role': 'assistant', 'content': reply})
 
@@ -42,3 +43,17 @@ run_chat()
 #temperature: it doesnt direcly direcly change the way it replies it just makes it more or less random
 #break: it stops the loop and exits the chat function and ending the program
 #Bug Diary:i had a bug about the authintication and at first i thought it was somthing in the code like line or something but it turned out to be a problem with the API key
+
+
+
+
+
+#step 1:
+#usage.input_tokens: The number of tokens in everything you sent to the model.
+#usage.output_tokens: The number of tokens the model generated in its response.
+
+
+#step 2:
+#what happens is that the AI is answering shorter then usual.
+#the answers arent really identical the AI noticing im asking him the same question and changing his answer a little bit to see if i need anything else or something.
+#
