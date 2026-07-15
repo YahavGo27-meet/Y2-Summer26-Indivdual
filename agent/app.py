@@ -22,7 +22,7 @@ def run_chat():
         response = client.messages.create(
             model='claude-haiku-4-5-20251001',
             max_tokens=300,
-            temperature=1,
+            temperature=0.7,
             system=system_message,
             messages=history
         )
@@ -30,6 +30,7 @@ def run_chat():
         reply = response.content[0].text
         #print(response)
         print(f'Claude: {reply}')
+        print('History:', history)
         history.append({'role': 'assistant', 'content': reply})
 
 run_chat()
@@ -54,6 +55,7 @@ run_chat()
 
 
 #step 2:
-#what happens is that the AI is answering shorter then usual.
+#the answers arent as long as they should be.
 #the answers arent really identical the AI noticing im asking him the same question and changing his answer a little bit to see if i need anything else or something.
-#
+#i notice that his answers are geting more creative each time.
+#temperature controls how random or creative the AI responses are.
